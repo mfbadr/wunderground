@@ -10,8 +10,9 @@ describe('Weather', function (){
     it('should return a string with high temp', function(done){
        Weather.high('37212', function(temp){
         expect(temp).to.be.ok;
-        expect(temp.length).to.be.above(1);
+        expect(temp.length).to.be.above(2);
         expect(typeof temp).to.be.string;
+        console.log(temp);
         done();
        });
     });
@@ -20,8 +21,9 @@ describe('Weather', function (){
     it('should return a string with low temp', function(done){
       Weather.low('37212', function(temp){
       expect(temp).to.be.ok;
-      expect(temp.length).to.be.above(1);
+      expect(temp.length).to.be.above(2);
       expect(typeof temp).to.be.string;
+      console.log(temp);
       done();
       });
     });
