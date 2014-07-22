@@ -11,7 +11,7 @@ describe('Weather', function (){
        Weather.high('37212', function(temp){
         expect(temp).to.be.ok;
         expect(temp.length).to.be.above(2);
-        expect(typeof temp).to.be.string;
+        expect(temp).to.be.string;
         console.log(temp);
         done();
        });
@@ -22,7 +22,7 @@ describe('Weather', function (){
       Weather.low('37212', function(temp){
         expect(temp).to.be.ok;
         expect(temp.length).to.be.above(2);
-        expect(typeof temp).to.be.string;
+        expect(temp).to.be.string;
         console.log(temp);
         done();
       });
@@ -33,7 +33,7 @@ describe('Weather', function (){
       Weather.avgHigh('37212', function(temp){
         expect(temp).to.be.ok;
         expect(temp.length).to.be.above(2);
-        expect(typeof temp).to.be.string;
+        expect(temp).to.be.a('string');
         console.log(temp);
         done();
       });
@@ -44,7 +44,7 @@ describe('Weather', function (){
       Weather.avgLow('37212', function(temp){
         expect(temp).to.be.ok;
         expect(temp.length).to.be.above(2);
-        expect(typeof temp).to.be.string;
+        expect(temp).to.be.a('string');
         console.log(temp);
         done();
       });
@@ -54,7 +54,7 @@ describe('Weather', function (){
     it('should return an array of numbers with length 10', function(done){
       Weather.highs('37212', function(temp){
         expect(temp).to.have.length(10);
-        expect(typeof temp[0]).to.be.number;
+        expect(temp[0]).to.be.a('number');
         console.log(temp);
         done();
       });
@@ -64,7 +64,7 @@ describe('Weather', function (){
     it('should return an array of numbers with length 10', function(done){
       Weather.lows('37212', function(temp){
         expect(temp).to.have.length(10);
-        expect(typeof temp[0]).to.be.number;
+        expect(temp[0]).to.be.a('number');
         console.log(temp);
         done();
       });
@@ -74,11 +74,19 @@ describe('Weather', function (){
     it('should return the delta of the high and low arrays', function(done){
       Weather.deltas('37212', function(temp){
         expect(temp).to.have.length(10);
-        expect(typeof temp[0]).to.be.number;
+        expect(temp[0]).to.be.a('number');
         console.log(temp);
         done();
       });
     });
   });
-
+  describe('.moon', function(){
+    it('should return moon phase as a string', function(done){
+      Weather.moon('37212', function(moon){
+        expect(moon).to.be.a('string');
+        console.log(moon);
+        done();
+      });
+    });
+  });
 });

@@ -1,3 +1,4 @@
+/* jshint camelcase:false */
 'use strict';
 
 var request = require('request');
@@ -88,6 +89,24 @@ Weather.deltas = function(zip, cb){
   });
 };
 
+Weather.moon = function(zip, cb){
+  var url = 'http://api.wunderground.com/api/2738df9035fbffa9/astronomy/q/' + zip + '.json';
+  request( url, function(error, response,body){
+    body = JSON.parse(body);
+    var moonpercent = parseInt(body.moon_phase.percentIlluminated);
+  if(moonpercent < 5){ cb('New Moon');
+  }
+  if(moonpercent > 5 && moonpercent < 45){ cb('Crescent');
+  }
+  if(moonpercent > 44 && moonpercent < 56){ cb('Quarter');
+  }
+  if(moonpercent > 55 && moonpercent < 95){ cb('Gibbous');
+  }
+  if(moonpercent > 94){ cb('Full Moon');
+  }
+  });
+
+};
 
 module.exports = Weather;
 
