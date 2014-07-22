@@ -50,4 +50,35 @@ describe('Weather', function (){
       });
     });
   });
+  describe('.highs', function(){
+    it('should return an array of numbers with length 10', function(done){
+      Weather.highs('37212', function(temp){
+        expect(temp).to.have.length(10);
+        expect(typeof temp[0]).to.be.number;
+        console.log(temp);
+        done();
+      });
+    });
+  });
+  describe('.lows', function(){
+    it('should return an array of numbers with length 10', function(done){
+      Weather.lows('37212', function(temp){
+        expect(temp).to.have.length(10);
+        expect(typeof temp[0]).to.be.number;
+        console.log(temp);
+        done();
+      });
+    });
+  });
+  describe('.deltas', function(){
+    it('should return the delta of the high and low arrays', function(done){
+      Weather.deltas('37212', function(temp){
+        expect(temp).to.have.length(10);
+        expect(typeof temp[0]).to.be.number;
+        console.log(temp);
+        done();
+      });
+    });
+  });
+
 });
