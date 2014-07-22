@@ -20,11 +20,33 @@ describe('Weather', function (){
   describe('.low', function(){
     it('should return a string with low temp', function(done){
       Weather.low('37212', function(temp){
-      expect(temp).to.be.ok;
-      expect(temp.length).to.be.above(2);
-      expect(typeof temp).to.be.string;
-      console.log(temp);
-      done();
+        expect(temp).to.be.ok;
+        expect(temp.length).to.be.above(2);
+        expect(typeof temp).to.be.string;
+        console.log(temp);
+        done();
+      });
+    });
+  });
+  describe('.avgHigh', function(){
+    it('should return a string with avg high', function(done){
+      Weather.avgHigh('37212', function(temp){
+        expect(temp).to.be.ok;
+        expect(temp.length).to.be.above(2);
+        expect(typeof temp).to.be.string;
+        console.log(temp);
+        done();
+      });
+    });
+  });
+  describe('.avgLow', function(){
+    it('should return a string with avg log', function(done){
+      Weather.avgLow('37212', function(temp){
+        expect(temp).to.be.ok;
+        expect(temp.length).to.be.above(2);
+        expect(typeof temp).to.be.string;
+        console.log(temp);
+        done();
       });
     });
   });
